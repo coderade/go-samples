@@ -19,7 +19,6 @@ func main() {
 	// Different ways of implement a struct:
 	// 1. Use the properties positions
 	name1 := person{"Bill", "Gates", contactInfo{"", 12}}
-	//name1.updateName("Billy")
 	name1.print()
 
 	// 2. Set the values fir specific properties
@@ -31,12 +30,20 @@ func main() {
 	name3.firstName = "Elon"
 	name3.lastName = "Musk"
 	name3.print()
+
+	var name4 person
+	name4.firstName = "Steve"
+	name4.lastName = "Wozniak"
+	name4Pointer := &name4
+	fmt.Println("pointer: ", name4Pointer)
+	name4Pointer.updateName("Billy")
+	name4.print()
 }
 
 func (p person) print() {
 	fmt.Printf("%+v \n", p)
 }
 
-func (p person) updateName(newFirstName string) {
-	p.firstName = newFirstName
+func (p *person) updateName(newFirstName string) {
+	(*p).firstName = newFirstName
 }
