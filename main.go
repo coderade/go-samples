@@ -34,9 +34,9 @@ func main() {
 	var name4 person
 	name4.firstName = "Steve"
 	name4.lastName = "Wozniak"
-	name4Pointer := &name4
-	fmt.Println("pointer: ", name4Pointer)
-	name4Pointer.updateName("Billy")
+	//name4Pointer := &name4
+	//fmt.Println("pointer: ", name4Pointer)
+	name4.updateName("Billy") //pointer shortcut
 	name4.print()
 }
 
