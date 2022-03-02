@@ -19,6 +19,7 @@ func main() {
 	// Different ways of implement a struct:
 	// 1. Use the properties positions
 	name1 := person{"Bill", "Gates", contactInfo{"", 12}}
+	//name1.updateName("Billy")
 	name1.print()
 
 	// 2. Set the values fir specific properties
@@ -34,4 +35,8 @@ func main() {
 
 func (p person) print() {
 	fmt.Printf("%+v \n", p)
+}
+
+func (p person) updateName(newFirstName string) {
+	p.firstName = newFirstName
 }
