@@ -19,7 +19,7 @@ func printArea(s shape) {
 	fmt.Println(s.getArea())
 }
 
-func (t *triangle) getArea() float64 {
+func (t triangle) getArea() float64 {
 	return 0.5 * t.height * t.base
 }
 
@@ -29,7 +29,7 @@ func (s square) getArea() float64 {
 
 func main() {
 	t := triangle{height: 10, base: 10}
-	printArea(&t)
+	printArea(t)
 
 	s := square{sideLength: 10}
 	printArea(s)
