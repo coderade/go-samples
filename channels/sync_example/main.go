@@ -11,16 +11,20 @@ func main() {
 		"https://amazon.com",
 		"https://golang.org",
 	}
+	c := make(chan string)
 
 	for _, url := range urls {
-		go checkSite(url)
+		go checkSite(url, c)
+		fmt.Println(<-c)
 	}
+
 }
 
-func checkSite(url string) {
+func checkSite(url string, c chan string) {
 	_, err := http.Get(url)
 	if err != nil {
-		fmt.Println(url, "might be down")
+		c <- url + " might be down"
+
 	}
-	fmt.Println(url, "is up!")
+	c <- url
 }
